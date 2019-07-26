@@ -27,7 +27,8 @@ urlpatterns = [
     path('blog/<int:blog_id>', blog.views.detail, name='detail'),
     path('new', blog.views.new, name='new'),
     path('create', blog.views.create, name='create'),
-    path('portfolio/', portfolio.views.portfolio, name='portfolio')
+    path('portfolio/', portfolio.views.portfolio, name='portfolio'),
+    path('portnew/', portfolio.views.create, name='portnew'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
