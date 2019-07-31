@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Blog
-from .models import Portfolio
 from django.utils import timezone
 
 # Create your views here.

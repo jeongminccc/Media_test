@@ -38,25 +38,13 @@
     </head>
     
     <body>
+        
+        {% if portfolio.image %}
+        path : {{portfolio.image.path}} <!-- /Users/nickname/documents/practice/media/jeju_pic.png -->
+        url : {{ portfolio.image.url}}  <!-- /media/jeju_pic.png -->
+        <img src="{{ portfolio.image.url}} " alt="">
+        {%endif%}
 
-        <br>
-            <div class="container">
-                <form
-                    method="POST"
-                    action=""
-                    enctype="multipart/form-data"
-                >
-                    {% csrf_token %}
-                    <table>
-                    {{ form.as_table }}
-                    </table>
-                    
-                    <p>
-                        <button type="submit">저장</button>
-                    </p>
-                </form>
-            </div>
-    
         <!-- bootstrap4 js관련 CDN 부분 -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>

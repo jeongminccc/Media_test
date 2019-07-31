@@ -23,12 +23,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', blog.views.home, name='home'),
+    path('home', blog.views.home, name='home'),
     path('blog/<int:blog_id>', blog.views.detail, name='detail'),
     path('new', blog.views.new, name='new'),
-    path('create', blog.views.create, name='create'),
-    path('portfolio/', portfolio.views.portfolio, name='portfolio'),
-    path('portnew/', portfolio.views.create, name='portnew'),
+    path('', portfolio.views.portfolio, name='portfolio'),
+    path('portnew/', portfolio.views.create, name='create'),
+    path('portdetail/<int:portfolio_id>', portfolio.views.detail, name='detail'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
