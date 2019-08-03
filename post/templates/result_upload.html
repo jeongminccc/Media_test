@@ -1,0 +1,23 @@
+<form method="POST" action="{% url 'post:result_upload' post.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input id="title" type ="text" name = "title" required="true">
+        <label>제목을 입력해주세요</label>
+    <br>
+  
+    <textarea id="textarea1" type="text" name="context" cols=40 rows=10  required="true">
+        {{result.context}}
+    </textarea>
+        <label>내용을 입력해주세요</label>
+    <br>
+    <input type="file" name="image" required="true">
+        <label>사진을 업로드 해주세요</label>
+    <br>
+    
+    <button>
+        <a href="{% url 'post:post' %}">글쓰기 취소</a>
+    </button>    
+    <br>
+    <button type="submit" name="action">
+        완료
+    </button>
+</form>

@@ -19,10 +19,11 @@ class Portfolio(models.Model):
         uuid_name = uuid4().hex
         # 확장자 추출
         extension = os.path.splitext(filename)[-1].lower()
+        plus_date = timezone.now().strftime('%H%M%S')
         # 결합 후 return
         return '/'.join([
             ymd_path,
-            uuid_name + extension,
+            uuid_name + plus_date + extension,
         ])
     
     image = models.ImageField(upload_to=date_upload_to)

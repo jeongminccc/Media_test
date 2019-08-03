@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {{post.title}}<br>
+    
+    {% if post.image %}
+        <img src="{{ post.image.url }}" 
+         onmouseover="this.src='/static/first.jpg'"
+         onmouseout="this.src='{{post.image.url}}'"
+         alt="">
+    {% endif %}
+
+    <br>
+    {{post.context}}<br>
+
+
+    {% if post.creator == user %}
+    <button>
+        <a href="{% url 'post:post_modify' post.id%}">수정</a>
+    </button>
+
+    <button>
+        <a href="{% url 'post:post_delete' post.id%}">삭제</a>
+    </button>
+
+    <button>
+        <a href="{% url 'post:result_upload' post.id %}">결과 글쓰기</a>
+    </button>
+    {% endif %}
+    <br>
+
+    {% for result in results %}
+        {{result.title}}<br>
+        {{result.context}}<br>
+        {% if result.image %}
+            <img src="{{ result.image.url }}" alt="">
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
