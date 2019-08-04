@@ -11,7 +11,7 @@
     
     {% if post.image %}
         <img src="{{ post.image.url }}" 
-         onmouseover="this.src='/static/first.jpg'"
+         onmouseover="this.src='{{result.image.url}}'"
          onmouseout="this.src='{{post.image.url}}'"
          alt="">
     {% endif %}
